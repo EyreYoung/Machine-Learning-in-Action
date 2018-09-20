@@ -48,9 +48,6 @@ def classify0(inX, dataSet, labels, k):
     return sortedClassCount[0][0]
 
 
-
-
-
 def file2matrix(filename):
     """
     导入训练数据
@@ -90,7 +87,7 @@ def autoNorm(dataSet):
     归一化特征值
 
     :param dataSet: 数据集
-    :return:
+    :return: 归一化处理后的数据集 归一化处理的范围 最小值
     """
     # 计算每个属性的最大值和最小值
     minVals = dataSet.min(0)
@@ -104,6 +101,10 @@ def autoNorm(dataSet):
 
 
 def classifyPerson():
+    """
+
+    :return:
+    """
     resultList = ['not at all', 'in small doses', 'in large doses']
     percentTats = float(input("Percentage of time spent on playing video games ?"))
     ffMiles = float(input("Frequent filer miles earned per years ?"))
@@ -116,6 +117,12 @@ def classifyPerson():
 
 
 def img2vector(filename):
+    """
+    图像数据转化为向量
+
+    :param filename: 图像文件
+    :return: 处理完成的一维矩阵
+    """
     returnVect = np.zeros((1, 1024))
     fr = open(filename)
     for i in range(32):
